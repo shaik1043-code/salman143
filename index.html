@@ -1,0 +1,315 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Explorer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7f8;
+            color: #222;
+        }
+
+        header {
+            background: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            background: #eaf4f4;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .search {
+            padding: 14px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .section {
+            width: 85%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 7px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        button {
+            background: #111;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>TravelGo</h1>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <h2>Explore the World 🌍</h2>
+
+    <p>Discover beautiful places and plan your next adventure.</p>
+
+    <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="Search destinations..."
+        onkeyup="searchPlaces()"
+    >
+
+</section>
+
+
+<section class="section" id="destinations">
+
+    <h2>Popular Destinations</h2>
+
+    <div class="destinations">
+
+        <div class="card" data-name="Ooty">
+            <img src="https://picsum.photos/500/300?random=10">
+
+            <div class="card-content">
+                <h3>Ooty</h3>
+                <p>Beautiful hills, lakes and cool weather.</p>
+
+                <button onclick="bookTrip('Ooty')">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+
+        <div class="card" data-name="Kodaikanal">
+            <img src="https://picsum.photos/500/300?random=11">
+
+            <div class="card-content">
+                <h3>Kodaikanal</h3>
+                <p>Peaceful mountains and amazing viewpoints.</p>
+
+                <button onclick="bookTrip('Kodaikanal')">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+
+        <div class="card" data-name="Goa">
+            <img src="https://picsum.photos/500/300?random=12">
+
+            <div class="card-content">
+                <h3>Goa</h3>
+                <p>Beaches, sunsets and unforgettable experiences.</p>
+
+                <button onclick="bookTrip('Goa')">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+
+        <div class="card" data-name="Kerala">
+            <img src="https://picsum.photos/500/300?random=13">
+
+            <div class="card-content">
+                <h3>Kerala</h3>
+                <p>Backwaters, nature and beautiful landscapes.</p>
+
+                <button onclick="bookTrip('Kerala')">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+
+        <div class="card" data-name="Manali">
+            <img src="https://picsum.photos/500/300?random=14">
+
+            <div class="card-content">
+                <h3>Manali</h3>
+                <p>Mountains, valleys and adventure.</p>
+
+                <button onclick="bookTrip('Manali')">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+
+        <div class="card" data-name="Mysore">
+            <img src="https://picsum.photos/500/300?random=15">
+
+            <div class="card-content">
+                <h3>Mysore</h3>
+                <p>Palaces, culture and historic attractions.</p>
+
+                <button onclick="bookTrip('Mysore')">
+                    Explore
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section" id="about">
+
+    <h2>Why TravelGo?</h2>
+
+    <p>
+        TravelGo helps you discover amazing destinations,
+        explore new places and plan your next trip easily.
+    </p>
+
+</section>
+
+
+<footer>
+    © 2026 TravelGo — Explore. Discover. Travel.
+</footer>
+
+
+<script>
+
+    function searchPlaces() {
+
+        let search =
+            document.getElementById("search")
+            .value
+            .toLowerCase();
+
+        let cards =
+            document.querySelectorAll(".card");
+
+        cards.forEach(card => {
+
+            let name =
+                card.dataset.name.toLowerCase();
+
+            if (name.includes(search)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+    }
+
+
+    function bookTrip(place) {
+
+        alert(
+            "Great choice! 🌍\n\n" +
+            "You selected " + place +
+            ".\n\n" +
+            "Trip details coming soon!"
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
+```
